@@ -41,9 +41,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        dataBinding = true
+    }
 }
 
 dependencies {
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation ("androidx.databinding:databinding-runtime:3.5.0")
 
     val hiltVersion = "2.48"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
