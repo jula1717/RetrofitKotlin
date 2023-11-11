@@ -46,13 +46,15 @@ android {
 dependencies {
 
     val hiltVersion = "2.48"
-
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
     val retrofitVersion = "2.9.0"
     implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
+
+    val paging_version = "3.2.1"
+    implementation("androidx.paging:paging-runtime:$paging_version")
 
 
     implementation("androidx.core:core-ktx:1.9.0")
