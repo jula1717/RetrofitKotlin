@@ -25,7 +25,10 @@ class GalleryFragment(): Fragment(R.layout.fragment_gallery) {
 
         binding.apply {
             recyclerView.apply {
-                adapter = photoAdapter
+                adapter = photoAdapter.withLoadStateHeaderAndFooter(
+                    header = PhotoLoadStateAdapter{photoAdapter.retry()},
+                    footer = PhotoLoadStateAdapter{photoAdapter.retry()}
+                )
                 layoutManager = LinearLayoutManager(requireContext())
                 setHasFixedSize(true)
             }
