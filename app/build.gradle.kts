@@ -5,6 +5,7 @@ plugins {
     kotlin("kapt")
   //  id("com.google.dagger.hilt.android")
     id ("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs")
 }
 buildscript{
     dependencies{
@@ -47,6 +48,13 @@ android {
 }
 
 dependencies {
+
+//    val nav_version2 = "2.7.5"
+//    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version2")
+
+    val nav_version = "2.6.0"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 

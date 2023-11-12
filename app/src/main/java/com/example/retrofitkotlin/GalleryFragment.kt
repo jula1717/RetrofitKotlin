@@ -9,13 +9,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofitkotlin.databinding.FragmentGalleryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GalleryFragment(): Fragment(R.layout.fragment_gallery) {
+class GalleryFragment(): Fragment(R.layout.fragment_gallery),PhotoAdapter.onItemClickedListener {
     private var _binding : FragmentGalleryBinding?=null
     private val binding
         get() = _binding!!
@@ -26,7 +27,7 @@ class GalleryFragment(): Fragment(R.layout.fragment_gallery) {
 
 
         _binding = FragmentGalleryBinding.bind(view)
-        val photoAdapter = PhotoAdapter()
+        val photoAdapter = PhotoAdapter(this)
 
         binding.apply {
             recyclerView.apply {
@@ -96,5 +97,10 @@ class GalleryFragment(): Fragment(R.layout.fragment_gallery) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding=null
+    }
+
+    override fun onItemClick(photo: Photo) {
+        val action = GalleryFragmentDirections.actionGalleryFragmentToDetailsFragment(photo)
+        findNavController().navigate(action)
     }
 }
