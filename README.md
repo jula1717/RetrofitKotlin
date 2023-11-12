@@ -1,5 +1,5 @@
 # RetrofitKotlin - Application for searching images
-##Description
+## Description
 A simple application for displaying images uses the API provided by Unsplash (with the Retrofit library). The application utilizes pagination, dependency injection, view binding, and the navigation component.
 
 ## Installation 
